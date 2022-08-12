@@ -1,0 +1,8 @@
+[submodule "addons/contract_sequence"]
+	path = addons/contract_sequence
+	url = https://github.com/monemasrl/contract_sequence.git
+	branch = 14.0
+[submodule "extra-addons/contract"]
+	path = extra-addons/contract
+	url = https://github.com/OCA/contract.git
+	branch = 14.0
