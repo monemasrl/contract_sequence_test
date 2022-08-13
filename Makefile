@@ -28,5 +28,5 @@ init_test_db:
 	docker exec -t db psql -U odoo -d postgres -c "DROP DATABASE IF EXISTS db_test"
 	docker exec -t db psql -U odoo -d postgres -c "CREATE DATABASE db_test"
 	docker start web
-	docker exec -u root -t web odoo -i contract_sequence -d db_test --stop-after-init
+	docker exec -u root -t web odoo -i contract_sequence -d db_test --stop-after-init --no-http
 
