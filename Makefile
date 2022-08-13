@@ -13,8 +13,7 @@ rebuild:
 	docker-compose up -d --build
 
 generate_local_coverage_report:
-	docker exec -it web pytest -rA -s --odoo-database=db_test --junitxml=coverage/local/junit.xml --cov-report html:/coverage/local/cov.html --cov-report xml:/coverage/local/cov.xml --cov-report annotate:/coverage/local/cov_annotate /mnt/addons/
-	docker exec -it -u root web coverage html -d /coverage/local
+	docker exec -it web pytest -rA -s --odoo-database=db_test --junitxml=coverage/local/junit.xml --cov-report html:coverage/local/cov.html --cov-report xml:coverage/local/cov.xml --cov-report annotate:coverage/local/cov_annotate /mnt/addons/
 	docker cp web:/coverage/local coverage
 
 generate_coverage_report:
