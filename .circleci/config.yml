@@ -14,6 +14,9 @@ jobs:
          name: Start docker
          command: make up
      - run:
+         name: Init DB
+         command: make init_test_db
+     - run:
          name: Run tests
          command: make generate_local_coverage_report
      - store_test_results:
