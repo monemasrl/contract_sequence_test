@@ -11,12 +11,12 @@ jobs:
           git submodule update
      - run:
          name: Start docker
-         command: make init
+         command: make up
      - run:
          name: Run tests
          command: make test
      - store_test_results:
-        path: ./tmp/test-results
+        path: /coverage/all
 workflows:
  version: 2
  build_and_test:
