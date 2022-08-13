@@ -15,7 +15,7 @@ rebuild:
 generate_local_coverage_report:
 	docker exec -it web pwd
 	docker exec -it web ls -la
-	docker exec -it web pytest -s --odoo-database=db_test --html=/coverage/local/report.html /mnt/extra-addons/
+	docker exec -it web pytest -s --odoo-database=db_test --html=/coverage/local/report.html /mnt/addons/
 	docker cp web:/coverage/local coverage
 
 generate_coverage_report:
@@ -28,6 +28,5 @@ init_test_db:
 	docker exec -t db psql -U odoo -d postgres -c "DROP DATABASE IF EXISTS db_test"
 	docker exec -t db psql -U odoo -d postgres -c "CREATE DATABASE db_test"
 	docker start web
-	docker exec -it web ls -la /mnt/addons /mnt/extra-addons
 	docker exec -u root -t web odoo -i contract_sequence -d db_test --stop-after-init --no-http
 
