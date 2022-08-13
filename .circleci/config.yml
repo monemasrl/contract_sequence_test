@@ -19,9 +19,6 @@ jobs:
      - run:
          name: Run tests
          command: make generate_local_coverage_report
-     - run:
-         name: Clean
-         command: make clean
      - store_test_results:
         path: coverage/
 workflows:

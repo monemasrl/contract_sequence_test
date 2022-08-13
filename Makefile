@@ -14,15 +14,13 @@ rebuild:
 
 generate_local_coverage_report:
 	docker exec -it web pytest -rA -s --odoo-database=db_test --junitxml=coverage/local/junit.xml /mnt/addons/
+	docker exec -it -u root web coverage html -d /coverage/local
 	docker cp web:/coverage/local coverage
 
 generate_coverage_report:
 	-docker exec -it -u root web coverage run /usr/bin/odoo -d db_test --test-enable -p 8001 --stop-after-init --log-level=test
 	docker exec -it -u root web coverage html -d /coverage/all
 	docker cp web:/coverage/all coverage
-
-clean:
-	rm -rf addons extra-addons
 
 init_test_db:
 	docker stop web
