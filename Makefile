@@ -14,7 +14,7 @@ rebuild:
 
 generate_local_coverage_report:
 	# docker exec -it web pytest -r -s --odoo-database=db_test --junitxml=coverage/local/junit.xml /mnt/addons/
-	docker exec -it web pytest -r -s --odoo-database=db_test --resultlog=coverage/local/report.log /mnt/addons/
+	docker exec -it web pytest -rA -s --odoo-database=db_test --resultlog=coverage/local/report.log /mnt/addons/
 	docker cp web:/coverage/local coverage
 
 generate_coverage_report:
