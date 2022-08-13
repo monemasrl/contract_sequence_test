@@ -14,7 +14,7 @@ jobs:
          command: make up
      - run:
          name: Run tests
-         command: make test
+         command: make generate_local_coverage_report
      - store_test_results:
         path: /coverage/all
 workflows:
