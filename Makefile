@@ -13,11 +13,8 @@ rebuild:
 	docker-compose up -d --build
 
 generate_local_coverage_report:
-	docker exec -it web pwd
-	docker exec -it web pytest -s --odoo-database=db_test --html=/coverage/local/report.html /mnt/addons/
+	docker exec -it web pytest -s --odoo-database=db_test --junitxml=coverage/local/junit.xml /mnt/addons/
 	docker cp web:/coverage/local coverage
-	pwd
-	ls -l
 
 generate_coverage_report:
 	-docker exec -it -u root web coverage run /usr/bin/odoo -d db_test --test-enable -p 8001 --stop-after-init --log-level=test
