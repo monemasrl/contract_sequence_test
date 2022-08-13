@@ -20,7 +20,7 @@ jobs:
          name: Run tests
          command: make generate_local_coverage_report
      - store_test_results:
-        path: /coverage/local
+        path: coverage/local
 workflows:
  version: 2
  build_and_test:
