@@ -15,7 +15,7 @@ rebuild:
 generate_local_coverage_report:
 	docker exec -it web pwd
 	docker exec -it web ls -la
-	docker exec -it web pytest -s --odoo-database=db_test --html=/coverage/local/report.html /mnt/extra-addons/
+	docker exec -it web pytest -s --odoo-database=db_test --html=/coverage/local/report.html /mnt/addons/
 	docker cp web:/coverage/local coverage
 
 generate_coverage_report:
