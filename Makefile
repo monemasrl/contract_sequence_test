@@ -6,7 +6,7 @@ down:
 	docker-compose down
 
 addon_scaffold:
-	docker exec -it --user root web /usr/bin/odoo scaffold $(ADDON_NAME) /mnt/extra-addons
+	docker exec -it --user root web /usr/bin/odoo scaffold $(ADDON_NAME) /mnt/addons
 
 rebuild:
 	docker-compose down
@@ -21,12 +21,12 @@ generate_coverage_report:
 	docker exec -it -u root web coverage html -d /coverage/all
 	docker cp web:/coverage/all coverage
 
+clean:
+	rm -rf addons extra-addons
+
 init_test_db:
 	docker stop web
 	docker exec -t db psql -U odoo -d postgres -c "DROP DATABASE IF EXISTS db_test"
 	docker exec -t db psql -U odoo -d postgres -c "CREATE DATABASE db_test"
 	docker start web
 	docker exec -u root -t web odoo -i contract_sequence -d db_test --stop-after-init --no-http
-
-cat_report:
-	cat coverage/junit.xml
