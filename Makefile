@@ -28,3 +28,5 @@ init_test_db:
 	docker start web
 	docker exec -u root -t web odoo -i contract_sequence -d db_test --stop-after-init --no-http
 
+cat_report:
+	cat coverage/junit.xml
