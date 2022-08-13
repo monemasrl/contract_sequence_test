@@ -15,6 +15,8 @@ jobs:
      - run:
          name: Run tests
          command: make test
+     - store_test_results:
+        path: /tmp/odoo_tests
 workflows:
  version: 2
  build_and_test:
