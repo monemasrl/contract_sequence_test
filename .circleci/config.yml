@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  deepsource: deepsource/test-coverage
 jobs:
  build_and_test:
    machine: true
@@ -21,6 +23,10 @@ jobs:
          command: make generate_local_coverage_report
      - store_test_results:
         path: coverage/
+     - deepsource/report:
+          coverage-file: coverage/local/cov.xml
+          dsn: '${DEEPSOURCE_DSN}'
+          key: python
 workflows:
  version: 2
  build_and_test:
