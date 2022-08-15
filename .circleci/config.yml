@@ -24,7 +24,7 @@ jobs:
       - store_test_results:
           path: coverage/
       - deepsource/report:
-          coverage-file: coverage/cov.xml
+          coverage-file: coverage/coverage.xml
           dsn: "${DEEPSOURCE_DSN}"
           key: python
 workflows:
