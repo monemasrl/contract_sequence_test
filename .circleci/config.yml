@@ -1,6 +1,6 @@
 version: 2
 orbs:
-  deepsource: deepsource/test-coverage
+  deepsource: deepsource/test-coverage@1.1.0
 jobs:
  build_and_test:
    machine: true
