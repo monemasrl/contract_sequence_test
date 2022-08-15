@@ -8,7 +8,7 @@ jobs:
     steps:
       - run:
           command: |
-            mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+            mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
             git clone -b 14.0 $CIRCLE_REPOSITORY_URL 
             cd $CIRCLE_PROJECT_REPONAME
       #  - checkout
