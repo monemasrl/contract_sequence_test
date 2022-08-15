@@ -14,6 +14,7 @@ rebuild:
 
 generate_local_coverage_report:
 	docker exec -u root -it web pytest -p no:warnings -rA -s --odoo-database=db_test --junitxml=coverage/local/junit.xml --cov-report html:coverage/local/cov.html --cov-report xml:coverage/local/cov.xml --cov-report annotate:coverage/local/cov_annotate --cov=/mnt/addons/contract_sequence /mnt/addons/contract_sequence/
+	docker exec -u root -it web cat coverage/local/cov.xml
 	docker cp web:/coverage/local coverage
 
 generate_coverage_report:
